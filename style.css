@@ -1,0 +1,2105 @@
+/* ==========================================================================
+   THE ART OF BEING LOVEENA — PERSONAL PORTFOLIO
+   Creative Direction: The Artful Muse
+   Independent Editorial Magazine & Scrapbook Aesthetic
+   Strictly Pure CSS3 (No JavaScript)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS RESET & COLOR PALETTE
+   -------------------------------------------------------------------------- */
+:root {
+    /* Exact Palette Rules:
+       Warm Cream: ~60%
+       Dusty Rose: ~20%
+       Deep Burgundy: ~12%
+       Plum Charcoal: ~5%
+       Muted Terracotta: ~3% */
+    --warm-cream: #F4EEE8;
+    --warm-cream-alt: #EFE8E0;
+    --dusty-rose: #C9A6A0;
+    --dusty-rose-light: #DFC5BF;
+    --dusty-rose-soft: rgba(201, 166, 160, 0.22);
+    --deep-burgundy: #743C50;
+    --deep-burgundy-hover: #5A2E3E;
+    --deep-burgundy-soft: rgba(116, 60, 80, 0.12);
+    --muted-terracotta: #A66B52;
+    --muted-terracotta-soft: rgba(166, 107, 82, 0.15);
+    --plum-charcoal: #343039;
+    --plum-charcoal-muted: #5A5462;
+    --plum-charcoal-light: #7E7787;
+
+    /* Typography Hierarchy */
+    --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-editorial: 'Cormorant Garamond', Garamond, 'Baskerville', serif;
+
+    /* Transitions & Shadows */
+    --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --shadow-subtle: 0 4px 18px rgba(52, 48, 57, 0.05);
+    --shadow-medium: 0 12px 28px rgba(52, 48, 57, 0.08);
+    --shadow-lift: 0 18px 36px rgba(116, 60, 80, 0.12);
+    --border-editorial: 1px solid rgba(116, 60, 80, 0.18);
+    --border-rose: 1px solid rgba(201, 166, 160, 0.45);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+    background-color: var(--warm-cream);
+    color: var(--plum-charcoal);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.65;
+    background-color: var(--warm-cream);
+    color: var(--plum-charcoal);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Subtle editorial paper grain texture overlay using pure CSS gradients */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        radial-gradient(rgba(116, 60, 80, 0.02) 1px, transparent 1px),
+        radial-gradient(rgba(166, 107, 82, 0.02) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+/* Accessible focus styling */
+:focus-visible {
+    outline: 2px dashed var(--deep-burgundy);
+    outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   2. REUSABLE CONTAINER & EDITORIAL UTILITIES
+   -------------------------------------------------------------------------- */
+section[id] {
+    scroll-margin-top: 85px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1240px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* Section Header Motif */
+.section-header {
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted-terracotta);
+    margin-bottom: 0.85rem;
+}
+
+.tag-number {
+    font-family: var(--font-editorial);
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--deep-burgundy);
+}
+
+.tag-dash {
+    color: var(--dusty-rose);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--deep-burgundy);
+    letter-spacing: -0.015em;
+    margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+    font-family: var(--font-editorial);
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-style: italic;
+    color: var(--plum-charcoal-muted);
+    font-weight: 400;
+    max-width: 650px;
+}
+
+/* Buttons with tactile editorial elegance */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.85rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: var(--transition-bounce);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background-color: var(--deep-burgundy);
+    color: var(--warm-cream);
+    border: 1px solid var(--deep-burgundy);
+    box-shadow: 0 4px 14px rgba(116, 60, 80, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--deep-burgundy-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(116, 60, 80, 0.3);
+    color: var(--warm-cream);
+}
+
+.btn-primary:hover .arrow {
+    transform: translate(3px, -3px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--deep-burgundy);
+    border: 1px solid var(--deep-burgundy);
+    background-color: rgba(201, 166, 160, 0.12);
+}
+
+.btn-secondary:hover {
+    background-color: var(--dusty-rose);
+    color: var(--plum-charcoal);
+    border-color: var(--dusty-rose);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 1.05em;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION 1: STICKY NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(244, 238, 232, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(116, 60, 80, 0.14);
+    z-index: 1000;
+    padding: 1.15rem 0;
+    transition: var(--transition-smooth);
+}
+
+.nav-wrapper {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--deep-burgundy);
+    line-height: 1.1;
+    transition: var(--transition-smooth);
+}
+
+.brand-logo:hover .brand-name {
+    color: var(--muted-terracotta);
+}
+
+.brand-tagline {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted-terracotta);
+}
+
+/* Nav menu items */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 1.85rem;
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--deep-burgundy);
+    position: relative;
+    padding: 0.35rem 0;
+    transition: var(--transition-smooth);
+}
+
+/* Subtle hover underline animations */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background-color: var(--muted-terracotta);
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover {
+    color: var(--muted-terracotta);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Small burgundy header CTA button */
+.nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.15rem;
+    background-color: var(--deep-burgundy);
+    color: var(--warm-cream);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    border-radius: 2px;
+    border: 1px solid var(--deep-burgundy);
+    transition: var(--transition-bounce);
+}
+
+.nav-cta-btn:hover {
+    background-color: var(--deep-burgundy-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(116, 60, 80, 0.25);
+}
+
+.nav-cta-btn:hover .arrow {
+    transform: translate(2px, -2px);
+}
+
+/* Mobile Toggle Hamburger (Pure CSS) */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 18px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger-bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--deep-burgundy);
+    transition: var(--transition-smooth);
+    border-radius: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION 2: HERO / HOMEPAGE
+   Editorial Split-Screen Magazine Cover
+   -------------------------------------------------------------------------- */
+.hero-section {
+    padding: 4.5rem 0 6rem;
+    position: relative;
+    background-color: var(--warm-cream);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+/* Left Hero Typography */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-badge .star-icon {
+    color: var(--muted-terracotta);
+    font-size: 0.95rem;
+}
+
+.hero-badge .badge-text {
+    font-family: var(--font-body);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--muted-terracotta);
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6.2vw, 5.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--plum-charcoal);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-name {
+    font-size: 1.22em;
+    font-weight: 800;
+    font-style: italic;
+    color: var(--deep-burgundy);
+    display: inline-block;
+    position: relative;
+    text-shadow: 2px 2px 0 rgba(201, 166, 160, 0.35);
+}
+
+.hero-subtagline {
+    font-family: var(--font-editorial);
+    font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+    font-style: italic;
+    color: var(--deep-burgundy);
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1.2rem;
+    border-left: 2px solid var(--dusty-rose);
+}
+
+.hero-description {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--plum-charcoal-muted);
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+}
+
+/* Editorial Issue Stamp Row */
+.hero-stamp-row {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding-top: 1.85rem;
+    border-top: 1px dashed rgba(116, 60, 80, 0.22);
+    font-size: 0.72rem;
+}
+
+.stamp-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.stamp-label {
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--muted-terracotta);
+}
+
+.stamp-value {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--plum-charcoal);
+    letter-spacing: 0.08em;
+}
+
+.stamp-divider {
+    color: var(--dusty-rose);
+    font-family: var(--font-editorial);
+    font-size: 1.2rem;
+}
+
+/* Right Side: Editorial Photograph & Collage Artboard */
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-artboard {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    padding: 1.25rem;
+}
+
+/* Overlapping Decorative Shapes */
+.artboard-backdrop {
+    position: absolute;
+    pointer-events: none;
+    transition: var(--transition-smooth);
+}
+
+.backdrop-rose {
+    top: -15px;
+    right: -15px;
+    width: 90%;
+    height: 94%;
+    background-color: var(--dusty-rose);
+    opacity: 0.45;
+    border-radius: 4px;
+    z-index: 1;
+    border: 1px dashed var(--deep-burgundy);
+}
+
+.backdrop-terracotta-frame {
+    bottom: -18px;
+    left: -15px;
+    width: 85%;
+    height: 90%;
+    background-color: transparent;
+    border: 1.5px solid var(--muted-terracotta);
+    border-radius: 2px;
+    z-index: 1;
+}
+
+/* Subtle decorative stars */
+.deco-sparkle {
+    position: absolute;
+    color: var(--deep-burgundy);
+    font-size: 1.6rem;
+    pointer-events: none;
+    z-index: 4;
+}
+
+.sparkle-top-right {
+    top: -30px;
+    right: 20px;
+    animation: gentlePulse 4s ease-in-out infinite;
+}
+
+.sparkle-bottom-left {
+    bottom: 25px;
+    left: -28px;
+    font-size: 2rem;
+    color: var(--muted-terracotta);
+    animation: gentlePulse 5s ease-in-out infinite reverse;
+}
+
+@keyframes gentlePulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+    50% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+}
+
+/* Scrapbook Washi-Tape Accent */
+.tape-strip {
+    position: absolute;
+    top: -6px;
+    left: 45%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 110px;
+    height: 28px;
+    background-color: rgba(244, 238, 232, 0.85);
+    border: 1px dashed rgba(166, 107, 82, 0.4);
+    box-shadow: 0 2px 6px rgba(52, 48, 57, 0.08);
+    z-index: 5;
+    backdrop-filter: blur(2px);
+}
+
+/* Handwritten-style Annotation Notes around the Photograph */
+.annotation {
+    position: absolute;
+    background-color: var(--warm-cream);
+    padding: 0.55rem 0.95rem;
+    border: 1px solid rgba(116, 60, 80, 0.2);
+    box-shadow: var(--shadow-subtle);
+    border-radius: 2px;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: var(--transition-bounce);
+    cursor: default;
+    max-width: 230px;
+}
+
+.annotation:hover {
+    transform: scale(1.05) !important;
+    box-shadow: var(--shadow-medium);
+    border-color: var(--deep-burgundy);
+}
+
+.annotation-pin {
+    color: var(--muted-terracotta);
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.annotation-text {
+    font-family: var(--font-editorial);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--plum-charcoal);
+    line-height: 1.25;
+}
+
+/* Specific Positions for the 3 Notes */
+.annotation-1 {
+    top: 8%;
+    right: -10%;
+    transform: rotate(3.5deg);
+    background-color: #FAF5F0;
+    border-color: var(--dusty-rose);
+}
+
+.annotation-2 {
+    bottom: 20%;
+    left: -12%;
+    transform: rotate(-4.5deg);
+    background-color: #F8F2EC;
+    border-color: var(--muted-terracotta);
+}
+
+.annotation-3 {
+    bottom: -4%;
+    right: -4%;
+    transform: rotate(2.5deg);
+    background-color: #FCF8F5;
+    border-color: var(--deep-burgundy);
+}
+
+/* Profile Photograph Figure */
+.profile-figure {
+    position: relative;
+    z-index: 3;
+    background-color: var(--warm-cream);
+    padding: 0.85rem;
+    border: 1px solid rgba(116, 60, 80, 0.25);
+    box-shadow: 0 16px 36px rgba(52, 48, 57, 0.12);
+    border-radius: 2px;
+    transition: var(--transition-smooth);
+}
+
+.profile-figure:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 42px rgba(116, 60, 80, 0.16);
+}
+
+.image-wrapper {
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background-color: var(--dusty-rose-light);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile-figure:hover .profile-image {
+    transform: scale(1.025);
+}
+
+.profile-caption {
+    margin-top: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+}
+
+.caption-line {
+    flex: 1;
+    height: 1px;
+    background-color: rgba(116, 60, 80, 0.2);
+}
+
+.caption-text {
+    font-family: var(--font-body);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: var(--muted-terracotta);
+    text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION 3: ABOUT ME
+   Editorial Story, Oversized Quotation & Identity Cards
+   -------------------------------------------------------------------------- */
+.about-section {
+    padding: 6.5rem 0;
+    background-color: #FAF5F0;
+    border-top: 1px solid rgba(116, 60, 80, 0.12);
+    border-bottom: 1px solid rgba(116, 60, 80, 0.12);
+    position: relative;
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 4.5rem;
+    align-items: flex-start;
+    margin-bottom: 5rem;
+}
+
+/* Left Column: Quote */
+.about-quote-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: sticky;
+    top: 6rem;
+}
+
+.quote-card {
+    background-color: var(--warm-cream);
+    border: 1px solid rgba(116, 60, 80, 0.2);
+    padding: 2.8rem 2.2rem;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+}
+
+.quote-card::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    border: 1px dashed var(--dusty-rose);
+    pointer-events: none;
+}
+
+.quote-mark {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    line-height: 0.8;
+    color: var(--muted-terracotta);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.editorial-quote {
+    font-family: var(--font-editorial);
+    font-size: clamp(1.65rem, 2.5vw, 2.15rem);
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--deep-burgundy);
+    margin-bottom: 1.5rem;
+}
+
+.quote-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(116, 60, 80, 0.15);
+}
+
+.quote-flourish {
+    color: var(--muted-terracotta);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+}
+
+.quote-author {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: var(--plum-charcoal-muted);
+}
+
+.about-stamp-note {
+    background-color: rgba(201, 166, 160, 0.18);
+    border-left: 3px solid var(--muted-terracotta);
+    padding: 1.2rem 1.4rem;
+}
+
+.mini-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--muted-terracotta);
+    margin-bottom: 0.4rem;
+}
+
+.mini-note {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--plum-charcoal);
+    line-height: 1.6;
+}
+
+/* Right Column: Narrative */
+.about-text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-lead {
+    font-family: var(--font-editorial);
+    font-size: 1.45rem;
+    line-height: 1.65;
+    color: var(--deep-burgundy);
+    font-weight: 500;
+}
+
+.about-body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--plum-charcoal-muted);
+}
+
+.about-highlight-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: var(--warm-cream);
+    border: 1px solid rgba(116, 60, 80, 0.18);
+    padding: 1.35rem 1.65rem;
+    margin-top: 1rem;
+    border-radius: 2px;
+}
+
+.highlight-star {
+    color: var(--deep-burgundy);
+    font-size: 1.2rem;
+    line-height: 1.3;
+}
+
+.highlight-text {
+    font-size: 0.98rem;
+    color: var(--plum-charcoal);
+    line-height: 1.6;
+}
+
+.highlight-text em {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: var(--deep-burgundy);
+}
+
+/* Three Playful Mini-Cards Grid */
+.triad-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.mini-card {
+    padding: 2.2rem 1.85rem;
+    border-radius: 3px;
+    transition: var(--transition-smooth);
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lift);
+}
+
+.mini-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+}
+
+.card-index {
+    font-family: var(--font-editorial);
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.card-icon {
+    font-size: 1.1rem;
+}
+
+.mini-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.85rem;
+}
+
+.mini-card-desc {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    margin-bottom: 1.6rem;
+    flex-grow: 1;
+}
+
+.mini-card-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(116, 60, 80, 0.2);
+}
+
+/* Card Variations (Rose and Cream shades) */
+.card-thinker {
+    background-color: var(--warm-cream);
+    border: 1px solid var(--border-rose);
+    color: var(--plum-charcoal);
+}
+
+.card-thinker .mini-card-title {
+    color: var(--deep-burgundy);
+}
+
+.card-thinker .card-index,
+.card-thinker .card-icon {
+    color: var(--muted-terracotta);
+}
+
+.card-thinker .mini-card-tag {
+    color: var(--muted-terracotta);
+}
+
+.card-storyteller {
+    background-color: var(--dusty-rose-light);
+    border: 1px solid var(--dusty-rose);
+    color: var(--plum-charcoal);
+}
+
+.card-storyteller .mini-card-title {
+    color: var(--deep-burgundy);
+}
+
+.card-storyteller .card-index,
+.card-storyteller .card-icon {
+    color: var(--deep-burgundy);
+}
+
+.card-storyteller .mini-card-tag {
+    color: var(--deep-burgundy);
+}
+
+.card-connector {
+    background-color: #EFE4DC;
+    border: 1px solid rgba(166, 107, 82, 0.35);
+    color: var(--plum-charcoal);
+}
+
+.card-connector .mini-card-title {
+    color: var(--muted-terracotta);
+}
+
+.card-connector .card-index,
+.card-connector .card-icon {
+    color: var(--deep-burgundy);
+}
+
+.card-connector .mini-card-tag {
+    color: var(--deep-burgundy);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION 4: EXPERIENCE
+   Large Editorial Cards with Dramatic Visual Contrast
+   -------------------------------------------------------------------------- */
+.experience-section {
+    padding: 6.5rem 0;
+    background-color: var(--warm-cream);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+}
+
+.exp-card {
+    padding: 3rem 2.6rem;
+    border-radius: 3px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: var(--shadow-subtle);
+}
+
+.exp-card:hover {
+    transform: translateY(-8px);
+}
+
+.exp-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.exp-badge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+}
+
+.exp-period {
+    font-family: var(--font-editorial);
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+.exp-card-title-group {
+    margin-bottom: 1.5rem;
+}
+
+.exp-organization {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+}
+
+.exp-role {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.exp-card-divider {
+    height: 1px;
+    width: 100%;
+    margin-bottom: 1.75rem;
+}
+
+.exp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.2rem;
+    flex-grow: 1;
+}
+
+.exp-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.bullet-star {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.exp-card-footer {
+    padding-top: 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* CARD 1: Deep Burgundy Card with Warm Cream Typography */
+.exp-card-burgundy {
+    background-color: var(--deep-burgundy);
+    color: var(--warm-cream);
+    box-shadow: 0 14px 34px rgba(116, 60, 80, 0.25);
+    border: 1px solid var(--deep-burgundy-hover);
+}
+
+.exp-card-burgundy:hover {
+    box-shadow: 0 20px 45px rgba(116, 60, 80, 0.38);
+}
+
+.exp-card-burgundy .exp-badge {
+    background-color: rgba(244, 238, 232, 0.15);
+    color: var(--warm-cream);
+    border: 1px solid rgba(244, 238, 232, 0.25);
+}
+
+.exp-card-burgundy .exp-period {
+    color: var(--dusty-rose-light);
+}
+
+.exp-card-burgundy .exp-organization {
+    color: var(--warm-cream);
+}
+
+.exp-card-burgundy .exp-role {
+    color: var(--dusty-rose-light);
+}
+
+.exp-card-burgundy .exp-card-divider {
+    background-color: rgba(244, 238, 232, 0.2);
+}
+
+.exp-card-burgundy .bullet-star {
+    color: var(--dusty-rose);
+}
+
+.exp-card-burgundy .exp-list li {
+    color: #F8F3EF;
+}
+
+.exp-card-burgundy .exp-card-footer {
+    border-top: 1px dashed rgba(244, 238, 232, 0.2);
+    color: var(--dusty-rose-light);
+}
+
+/* CARD 2: Dusty Rose Card with Dark Typography */
+.exp-card-rose {
+    background-color: var(--dusty-rose);
+    color: var(--plum-charcoal);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid rgba(166, 107, 82, 0.25);
+}
+
+.exp-card-rose:hover {
+    box-shadow: 0 18px 38px rgba(201, 166, 160, 0.45);
+}
+
+.exp-card-rose .exp-badge {
+    background-color: rgba(52, 48, 57, 0.1);
+    color: var(--plum-charcoal);
+    border: 1px solid rgba(52, 48, 57, 0.2);
+}
+
+.exp-card-rose .exp-period {
+    color: var(--deep-burgundy);
+}
+
+.exp-card-rose .exp-organization {
+    color: var(--deep-burgundy);
+}
+
+.exp-card-rose .exp-role {
+    color: var(--plum-charcoal);
+}
+
+.exp-card-rose .exp-card-divider {
+    background-color: rgba(52, 48, 57, 0.15);
+}
+
+.exp-card-rose .bullet-star {
+    color: var(--deep-burgundy);
+}
+
+.exp-card-rose .exp-list li {
+    color: var(--plum-charcoal);
+}
+
+.exp-card-rose .exp-card-footer {
+    border-top: 1px dashed rgba(52, 48, 57, 0.2);
+    color: var(--deep-burgundy);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION 5: MY WORLD
+   Asymmetrical Magazine Collage Grid
+   -------------------------------------------------------------------------- */
+.my-world-section {
+    padding: 6.5rem 0;
+    background-color: #FAF4EF;
+    border-top: 1px solid rgba(116, 60, 80, 0.12);
+    border-bottom: 1px solid rgba(116, 60, 80, 0.12);
+}
+
+/* Asymmetrical 12-Column Grid Layout */
+.world-collage-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2.2rem;
+}
+
+.collage-card {
+    padding: 2.6rem 2.2rem;
+    border-radius: 3px;
+    background-color: var(--warm-cream);
+    border: 1px solid rgba(116, 60, 80, 0.18);
+    position: relative;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-subtle);
+}
+
+.collage-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lift);
+}
+
+.collage-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.collage-number {
+    font-family: var(--font-editorial);
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--muted-terracotta);
+}
+
+.collage-category {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--deep-burgundy);
+}
+
+.collage-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    font-weight: 700;
+    color: var(--deep-burgundy);
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.01em;
+}
+
+.collage-quote {
+    font-family: var(--font-editorial);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--muted-terracotta);
+    margin-bottom: 1.6rem;
+    line-height: 1.4;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed rgba(116, 60, 80, 0.2);
+}
+
+.collage-card-body {
+    flex-grow: 1;
+    margin-bottom: 1.8rem;
+}
+
+.collage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.collage-list li {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--plum-charcoal-muted);
+    position: relative;
+    padding-left: 1.25rem;
+}
+
+.collage-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    font-size: 0.7rem;
+    color: var(--muted-terracotta);
+}
+
+.collage-list li strong {
+    color: var(--deep-burgundy);
+    font-weight: 700;
+}
+
+.card-corner-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted-terracotta);
+    align-self: flex-start;
+}
+
+/* Asymmetric Grid Spans */
+/* Card 1: Theatre Kid (Wide, 7 columns) */
+.card-theatre {
+    grid-column: span 7;
+    background-color: #F8F1EB;
+    border-color: rgba(201, 166, 160, 0.4);
+}
+
+/* Card 2: Community Matters (5 columns) */
+.card-community {
+    grid-column: span 5;
+    background-color: #F5EAE4;
+    border-color: rgba(166, 107, 82, 0.3);
+}
+
+/* Card 3: Words Are My Thing (5 columns) */
+.card-words {
+    grid-column: span 5;
+    background-color: #F7EEE6;
+    border-color: rgba(116, 60, 80, 0.25);
+}
+
+/* Card 4: The Creative Corner (7 columns) */
+.card-creative {
+    grid-column: span 7;
+    background-color: #F9F3EE;
+    border-color: rgba(201, 166, 160, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION 6: EDUCATION
+   Vertical Editorial Timeline with Burgundy Markers & Rose Highlights
+   -------------------------------------------------------------------------- */
+.education-section {
+    padding: 6.5rem 0;
+    background-color: var(--warm-cream);
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Vertical Center/Offset Rule */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    width: 2px;
+    background: linear-gradient(
+        180deg,
+        rgba(116, 60, 80, 0.1) 0%,
+        var(--deep-burgundy) 15%,
+        var(--muted-terracotta) 85%,
+        rgba(166, 107, 82, 0.1) 100%
+    );
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 3.5rem;
+    padding-left: 75px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 17px;
+    top: 14px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--warm-cream);
+    border: 2px solid var(--deep-burgundy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: var(--transition-bounce);
+}
+
+.marker-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--deep-burgundy);
+    transition: var(--transition-smooth);
+}
+
+.timeline-item:hover .timeline-marker {
+    transform: scale(1.25);
+    border-color: var(--muted-terracotta);
+}
+
+.timeline-item:hover .marker-dot {
+    background-color: var(--muted-terracotta);
+}
+
+/* Timeline Card */
+.timeline-content {
+    background-color: #FAF4EF;
+    border: 1px solid rgba(116, 60, 80, 0.18);
+    padding: 2.2rem 2.4rem;
+    border-radius: 3px;
+    box-shadow: var(--shadow-subtle);
+    width: 100%;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lift);
+    border-color: var(--dusty-rose);
+}
+
+.timeline-date-badge {
+    display: inline-block;
+    font-family: var(--font-editorial);
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--deep-burgundy);
+    background-color: rgba(201, 166, 160, 0.3);
+    padding: 0.3rem 0.95rem;
+    border-radius: 2px;
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(201, 166, 160, 0.5);
+}
+
+.timeline-institution {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--deep-burgundy);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.timeline-degree {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--muted-terracotta);
+    margin-bottom: 0.85rem;
+}
+
+.timeline-note {
+    font-size: 0.92rem;
+    color: var(--plum-charcoal-muted);
+    line-height: 1.6;
+    border-top: 1px dashed rgba(116, 60, 80, 0.18);
+    padding-top: 0.85rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECTION 7: SKILLS
+   Playful Typographic Word Collage (No Progress Bars!)
+   -------------------------------------------------------------------------- */
+.skills-section {
+    padding: 6.5rem 0;
+    background-color: #FAF5F0;
+    border-top: 1px solid rgba(116, 60, 80, 0.12);
+    border-bottom: 1px solid rgba(116, 60, 80, 0.12);
+}
+
+.skills-collage-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 1040px;
+    margin: 0 auto 3.5rem;
+    padding: 1.5rem 0;
+}
+
+/* Base Skill Tag */
+.skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.85rem 1.65rem;
+    border-radius: 4px;
+    transition: var(--transition-bounce);
+    cursor: default;
+    user-select: none;
+    box-shadow: var(--shadow-subtle);
+}
+
+.skill-tag:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: var(--shadow-lift);
+}
+
+.tag-sparkle {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.tag-text {
+    line-height: 1.2;
+}
+
+/* Typographic & Sizing Variations */
+.tag-small {
+    font-size: 0.92rem;
+    padding: 0.65rem 1.25rem;
+}
+
+.tag-medium {
+    font-size: 1.05rem;
+    padding: 0.9rem 1.75rem;
+    font-weight: 600;
+}
+
+.tag-large {
+    font-size: 1.25rem;
+    padding: 1.15rem 2.2rem;
+    font-weight: 700;
+}
+
+.tag-xlarge {
+    font-size: 1.45rem;
+    padding: 1.35rem 2.6rem;
+    font-weight: 700;
+}
+
+.tag-serif {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-size: 1.65rem;
+    background-color: var(--warm-cream);
+    color: var(--deep-burgundy);
+    border: 1.5px solid var(--deep-burgundy);
+}
+
+.tag-pill {
+    border-radius: 50px;
+}
+
+/* Color Variations within the strict palette */
+.tag-burgundy {
+    background-color: var(--deep-burgundy);
+    color: var(--warm-cream);
+    border: 1px solid var(--deep-burgundy);
+}
+
+.tag-burgundy .tag-sparkle {
+    color: var(--dusty-rose);
+}
+
+.tag-burgundy-light {
+    background-color: rgba(116, 60, 80, 0.12);
+    color: var(--deep-burgundy);
+    border: 1px solid rgba(116, 60, 80, 0.3);
+}
+
+.tag-rose {
+    background-color: var(--dusty-rose);
+    color: var(--plum-charcoal);
+    border: 1px solid rgba(166, 107, 82, 0.3);
+}
+
+.tag-terracotta {
+    background-color: var(--muted-terracotta);
+    color: var(--warm-cream);
+    border: 1px solid var(--muted-terracotta);
+}
+
+.tag-outline {
+    background-color: var(--warm-cream);
+    color: var(--plum-charcoal);
+    border: 1.5px dashed var(--muted-terracotta);
+}
+
+.tag-outline:hover {
+    border-style: solid;
+    border-color: var(--deep-burgundy);
+    color: var(--deep-burgundy);
+}
+
+.tag-cream-bordered {
+    background-color: #EFE8E0;
+    color: var(--deep-burgundy);
+    border: 1px solid rgba(116, 60, 80, 0.25);
+}
+
+.skills-footnote {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.footnote-text {
+    font-family: var(--font-editorial);
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--plum-charcoal-muted);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   10. SECTION 8: CONTACT
+   Deep Burgundy Background with Warm Cream Typography
+   -------------------------------------------------------------------------- */
+.contact-section {
+    padding: 7rem 0 8rem;
+    background-color: var(--deep-burgundy);
+    color: var(--warm-cream);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background accents */
+.contact-section::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background-color: rgba(201, 166, 160, 0.08);
+    pointer-events: none;
+}
+
+.contact-section::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: rgba(166, 107, 82, 0.1);
+    pointer-events: none;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-card {
+    background-color: rgba(244, 238, 232, 0.06);
+    border: 1px solid rgba(244, 238, 232, 0.2);
+    padding: 4.5rem 3.5rem;
+    max-width: 820px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Corner decorative accents */
+.card-accent {
+    position: absolute;
+    color: var(--dusty-rose);
+    font-size: 1rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.accent-tl { top: 14px; left: 14px; }
+.accent-tr { top: 14px; right: 14px; }
+.accent-bl { bottom: 14px; left: 14px; }
+.accent-br { bottom: 14px; right: 14px; }
+
+.contact-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dusty-rose-light);
+    margin-bottom: 1.5rem;
+}
+
+.contact-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+    font-weight: 700;
+    color: var(--warm-cream);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.25rem;
+}
+
+.contact-subtitle {
+    font-family: var(--font-editorial);
+    font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+    font-style: italic;
+    color: var(--dusty-rose-light);
+    line-height: 1.5;
+    margin: 0 auto 2.5rem;
+    max-width: 580px;
+}
+
+.email-display-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 2.5rem;
+    padding: 1.2rem 2.2rem;
+    background-color: rgba(244, 238, 232, 0.08);
+    border: 1px dashed rgba(244, 238, 232, 0.25);
+    border-radius: 2px;
+}
+
+.email-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--muted-terracotta);
+    text-transform: uppercase;
+}
+
+.email-link {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 600;
+    color: var(--warm-cream);
+    letter-spacing: 0.04em;
+    position: relative;
+}
+
+.email-link:hover {
+    color: var(--dusty-rose);
+}
+
+.contact-actions {
+    margin-bottom: 2.8rem;
+}
+
+.btn-connect-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.1rem 2.6rem;
+    background-color: var(--warm-cream);
+    color: var(--deep-burgundy);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-bounce);
+}
+
+.btn-connect-hero:hover {
+    background-color: var(--dusty-rose);
+    color: var(--plum-charcoal);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-connect-hero:hover .arrow {
+    transform: translate(4px, -4px);
+}
+
+.contact-closing-line {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(244, 238, 232, 0.15);
+}
+
+.contact-closing-line p {
+    font-family: var(--font-editorial);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--dusty-rose);
+    letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   11. FOOTER
+   Sophisticated Editorial Sign-Off
+   -------------------------------------------------------------------------- */
+.site-footer {
+    background-color: #2A262E;
+    color: var(--warm-cream);
+    padding: 2.2rem 0;
+    border-top: 1px solid rgba(244, 238, 232, 0.1);
+    font-size: 0.8rem;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.footer-brand {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--warm-cream);
+}
+
+.footer-edition {
+    font-size: 0.72rem;
+    color: var(--dusty-rose);
+    letter-spacing: 0.05em;
+}
+
+.footer-center {
+    color: var(--muted-terracotta);
+    font-size: 0.95rem;
+    letter-spacing: 0.3em;
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--dusty-rose);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(201, 166, 160, 0.25);
+    border-radius: 2px;
+}
+
+.back-to-top:hover {
+    color: var(--warm-cream);
+    border-color: var(--dusty-rose);
+    background-color: rgba(201, 166, 160, 0.1);
+}
+
+.back-to-top:hover .top-arrow {
+    transform: translateY(-3px);
+}
+
+.top-arrow {
+    transition: transform 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   12. RESPONSIVE DESIGN (TABLETS & MOBILES)
+   Pure CSS Mobile Navigation & Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* TABLETS (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+
+    .hero-visual {
+        order: -1;
+    }
+
+    .photo-artboard {
+        max-width: 380px;
+    }
+
+    .about-story-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-quote-column {
+        position: static;
+    }
+
+    .triad-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .world-collage-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-theatre,
+    .card-community,
+    .card-words,
+    .card-creative {
+        grid-column: span 1;
+    }
+}
+
+/* MOBILE DEVICES & SMALL TABLETS (max-width: 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    /* Mobile Hamburger Menu */
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: rgba(244, 238, 232, 0.98);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 1.5rem;
+        gap: 2rem;
+        border-bottom: 1px solid rgba(116, 60, 80, 0.2);
+        box-shadow: 0 16px 30px rgba(52, 48, 57, 0.12);
+        transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+        padding-top: 1.5rem;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 0.95rem;
+        display: inline-block;
+    }
+
+    .nav-cta-btn {
+        margin-bottom: 2rem;
+        width: 80%;
+        justify-content: center;
+    }
+
+    /* Toggle State */
+    .nav-toggle:checked ~ .nav-menu {
+        height: calc(100vh - 68px);
+        padding: 1.5rem;
+        overflow-y: auto;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label .hamburger-bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label .hamburger-bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero section on mobile */
+    .hero-section {
+        padding: 2.5rem 0 4rem;
+    }
+
+    .hero-title {
+        font-size: 2.6rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-stamp-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .stamp-divider {
+        display: none;
+    }
+
+    /* Annotations repositioned on mobile to stay within screen boundaries */
+    .annotation {
+        position: relative;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        max-width: 100%;
+        margin-top: 0.85rem;
+    }
+
+    .annotation-1,
+    .annotation-2,
+    .annotation-3 {
+        margin-top: 0.75rem;
+    }
+
+    /* Experience section */
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .exp-card {
+        padding: 2rem 1.5rem;
+    }
+
+    /* Timeline on mobile */
+    .timeline-container {
+        padding-left: 0;
+    }
+
+    .timeline-line {
+        left: 14px;
+    }
+
+    .timeline-item {
+        padding-left: 45px;
+    }
+
+    .timeline-marker {
+        left: 3px;
+    }
+
+    .timeline-content {
+        padding: 1.5rem 1.35rem;
+    }
+
+    /* Contact Card */
+    .contact-card {
+        padding: 3rem 1.5rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+    }
+}

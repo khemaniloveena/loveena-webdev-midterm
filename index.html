@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loveena Khemani — The Art of Being Loveena</title>
+    <meta name="description" content="Personal portfolio of Loveena Khemani — Economics student, creative soul, storyteller, and community leader.">
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- ========================================================
+         SECTION 1: NAVIGATION BAR
+         Sticky, editorial header with smooth anchor navigation
+         ======================================================== -->
+    <header class="site-header" id="top">
+        <div class="nav-wrapper">
+            <a href="#hero" class="brand-logo" aria-label="Loveena Khemani Home">
+                <span class="brand-name">LOVEENA KHEMANI</span>
+                <span class="brand-tagline">PORTFOLIO &bull; VOL. 01</span>
+            </a>
+
+            <!-- Pure CSS Mobile Menu Checkbox Toggle (No JavaScript needed) -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu">
+            <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </label>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu" aria-label="Primary Navigation">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link">HOME</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li><a href="#experience" class="nav-link">EXPERIENCES</a></li>
+                    <li><a href="#my-world" class="nav-link">MY WORLD</a></li>
+                    <li><a href="#education" class="nav-link">EDUCATION</a></li>
+                    <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                </ul>
+                <a href="#contact" class="nav-cta-btn">LET'S CONNECT <span class="arrow">&nearr;</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ========================================================
+             SECTION 2: HERO / HOMEPAGE
+             Split-screen editorial magazine cover layout
+             ======================================================== -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                
+                <!-- Left Side: Editorial Typography & Introduction -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="star-icon">&#10022;</span>
+                        <span class="badge-text">ECONOMICS STUDENT. CREATIVE SOUL. PEOPLE PERSON.</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hello, I'm <br>
+                        <span class="hero-name">Loveena.</span>
+                    </h1>
+
+                    <p class="hero-subtagline">
+                        Part thinker, part storyteller, full-time curious human.
+                    </p>
+
+                    <p class="hero-description">
+                        I am an undergraduate student at NMIMS with interests spanning economics, entrepreneurship, communication, creative expression and community engagement. I love bringing people together, turning ideas into action and finding stories in the most unexpected places.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#my-world" class="btn btn-secondary">
+                            <span>EXPLORE MY WORLD</span>
+                        </a>
+                        <a href="#contact" class="btn btn-primary">
+                            <span>LET'S CONNECT</span>
+                            <span class="arrow">&nearr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Editorial Issue Stamp Details -->
+                    <div class="hero-stamp-row">
+                        <div class="stamp-item">
+                            <span class="stamp-label">ISSUE</span>
+                            <span class="stamp-value">2026 / AUTUMN</span>
+                        </div>
+                        <div class="stamp-divider">/</div>
+                        <div class="stamp-item">
+                            <span class="stamp-label">BASED IN</span>
+                            <span class="stamp-value">DELHI &bull; MUMBAI</span>
+                        </div>
+                        <div class="stamp-divider">/</div>
+                        <div class="stamp-item">
+                            <span class="stamp-label">STATUS</span>
+                            <span class="stamp-value">ALWAYS EXPLORING</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Actual Photograph with Editorial Collage & Annotations -->
+                <div class="hero-visual">
+                    <div class="photo-artboard">
+                        <!-- Decorative Backdrop Elements -->
+                        <div class="artboard-backdrop backdrop-rose"></div>
+                        <div class="artboard-backdrop backdrop-terracotta-frame"></div>
+                        
+                        <!-- Decorative Star Elements -->
+                        <span class="deco-sparkle sparkle-top-right">&#10022;</span>
+                        <span class="deco-sparkle sparkle-bottom-left">&#10023;</span>
+                        
+                        <!-- Playful Washi-Tape Accent -->
+                        <div class="tape-strip"></div>
+
+                        <!-- Handwritten-style Annotation Notes -->
+                        <div class="annotation annotation-1">
+                            <span class="annotation-pin">&#10048;</span>
+                            <p class="annotation-text">Currently figuring it all out.</p>
+                        </div>
+
+                        <div class="annotation annotation-2">
+                            <span class="annotation-pin">&#10048;</span>
+                            <p class="annotation-text">Fueled by curiosity and conversations.</p>
+                        </div>
+
+                        <div class="annotation annotation-3">
+                            <span class="annotation-pin">&#10048;</span>
+                            <p class="annotation-text">Professional overthinker. Amateur everything-tryer.</p>
+                        </div>
+
+                        <!-- Main Image Frame with Actual Photograph -->
+                        <figure class="profile-figure">
+                            <div class="image-wrapper">
+                                <img src="profile.jpg" alt="Loveena Khemani &mdash; Economics student, creative soul, and storyteller" class="profile-image" width="772" height="1024" loading="eager" decoding="async">
+                            </div>
+                            <figcaption class="profile-caption">
+                                <span class="caption-line"></span>
+                                <span class="caption-text">THE PERSON BEHIND THE PORTFOLIO &mdash; EST. 2007</span>
+                                <span class="caption-line"></span>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 3: ABOUT ME
+             Editorial story, oversized quotation, and role cards
+             ======================================================== -->
+        <section class="about-section" id="about">
+            <div class="container">
+                
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-number">01</span>
+                        <span class="tag-dash">&mdash;</span>
+                        <span class="tag-title">INTRODUCTION</span>
+                    </div>
+                    <h2 class="section-title">SO, WHO'S LOVEENA?</h2>
+                </div>
+
+                <!-- Asymmetrical Editorial Story Grid -->
+                <div class="about-story-grid">
+                    
+                    <!-- Left: Large Decorative Quote & Philosophy -->
+                    <div class="about-quote-column">
+                        <div class="quote-card">
+                            <span class="quote-mark">&ldquo;</span>
+                            <blockquote class="editorial-quote">
+                                Life is too interesting to stick to just one thing.
+                            </blockquote>
+                            <div class="quote-footer">
+                                <span class="quote-flourish">&#10022; &#10022; &#10022;</span>
+                                <span class="quote-author">LOVEENA'S CORE MAXIM</span>
+                            </div>
+                        </div>
+
+                        <div class="about-stamp-note">
+                            <span class="mini-label">MY PERSPECTIVE</span>
+                            <p class="mini-note">
+                                A blend of rigorous economic logic and theatrical storytelling. Finding rhythm between numbers and narratives.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right: Narrative Paragraphs -->
+                    <div class="about-text-column">
+                        <p class="about-lead">
+                            I have always been fascinated by the intersection of people, ideas and systems. Whether it is understanding economic behaviour, leading a team, performing on stage or working with communities, I enjoy experiences that challenge the way I think.
+                        </p>
+                        <p class="about-body">
+                            My interests extend beyond the classroom. I find inspiration in literature, theatre, public speaking, creative expression and understanding the world through different perspectives.
+                        </p>
+                        <p class="about-body">
+                            I believe leadership is not just about taking charge. It is about listening, collaborating, creating opportunities and making ideas meaningful.
+                        </p>
+
+                        <div class="about-highlight-box">
+                            <span class="highlight-star">&#10022;</span>
+                            <p class="highlight-text">
+                                Driven by <em>empathy</em>, informed by <em>data</em>, and brought to life through <em>storytelling</em>.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Three Playful Mini-Cards: The Triad of Identity -->
+                <div class="triad-cards-grid">
+                    
+                    <!-- Card 1: The Thinker -->
+                    <article class="mini-card card-thinker">
+                        <div class="mini-card-header">
+                            <span class="card-index">01</span>
+                            <span class="card-icon">&#9671;</span>
+                        </div>
+                        <h3 class="mini-card-title">THE THINKER</h3>
+                        <p class="mini-card-desc">
+                            Economics, research, analysis and understanding how the world works.
+                        </p>
+                        <div class="mini-card-tag">LOGIC &bull; SYSTEMS &bull; INQUIRY</div>
+                    </article>
+
+                    <!-- Card 2: The Storyteller -->
+                    <article class="mini-card card-storyteller">
+                        <div class="mini-card-header">
+                            <span class="card-index">02</span>
+                            <span class="card-icon">&#10022;</span>
+                        </div>
+                        <h3 class="mini-card-title">THE STORYTELLER</h3>
+                        <p class="mini-card-desc">
+                            Literature, theatre, writing, performance and creative expression.
+                        </p>
+                        <div class="mini-card-tag">VOICE &bull; DRAMA &bull; POETICS</div>
+                    </article>
+
+                    <!-- Card 3: The Connector -->
+                    <article class="mini-card card-connector">
+                        <div class="mini-card-header">
+                            <span class="card-index">03</span>
+                            <span class="card-icon">&#10047;</span>
+                        </div>
+                        <h3 class="mini-card-title">THE CONNECTOR</h3>
+                        <p class="mini-card-desc">
+                            Leadership, communication, collaboration and bringing people together.
+                        </p>
+                        <div class="mini-card-tag">PEOPLE &bull; PURPOSE &bull; IMPACT</div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 4: EXPERIENCE
+             Large editorial cards with deep contrast & hover interaction
+             ======================================================== -->
+        <section class="experience-section" id="experience">
+            <div class="container">
+                
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-number">02</span>
+                        <span class="tag-dash">&mdash;</span>
+                        <span class="tag-title">TRACK RECORD</span>
+                    </div>
+                    <h2 class="section-title">THINGS I'VE BEEN UP TO.</h2>
+                    <p class="section-subtitle">Some ideas became projects. Some projects became experiences.</p>
+                </div>
+
+                <!-- Experience Cards Container -->
+                <div class="experience-grid">
+                    
+                    <!-- Card 1: Antigone (Deep Burgundy Card) -->
+                    <article class="exp-card exp-card-burgundy">
+                        <div class="exp-card-header">
+                            <div class="exp-badge">COMMUNITY &amp; IMPACT</div>
+                            <span class="exp-period">2024 &ndash; PRESENT</span>
+                        </div>
+
+                        <div class="exp-card-title-group">
+                            <h3 class="exp-organization">ANTIGONE</h3>
+                            <p class="exp-role">HEAD OF REGIONAL TEAM</p>
+                        </div>
+
+                        <div class="exp-card-divider"></div>
+
+                        <ul class="exp-list">
+                            <li>
+                                <span class="bullet-star">&#10022;</span>
+                                <span>Oversaw monthly sanitary pad donation drives, old-age home visits and community outreach across multiple districts.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-star">&#10022;</span>
+                                <span>Led teams in planning, logistics and volunteer mobilisation.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-star">&#10022;</span>
+                                <span>Supervised the adoption of five slums, organising welfare activities, awareness sessions and sustained community engagement.</span>
+                            </li>
+                        </ul>
+
+                        <div class="exp-card-footer">
+                            <span class="exp-footer-note">Grassroots Leadership &bull; Social Welfare &bull; Team Operations</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Dublieu Educational Services LLP (Dusty Rose Card) -->
+                    <article class="exp-card exp-card-rose">
+                        <div class="exp-card-header">
+                            <div class="exp-badge">MARKETING &amp; STRATEGY</div>
+                            <span class="exp-period">JUNE 2024 &ndash; SEPTEMBER 2024</span>
+                        </div>
+
+                        <div class="exp-card-title-group">
+                            <h3 class="exp-organization">DUBLIEU EDUCATIONAL SERVICES LLP</h3>
+                            <p class="exp-role">HEAD OF MARKETING DEPARTMENT</p>
+                        </div>
+
+                        <div class="exp-card-divider"></div>
+
+                        <ul class="exp-list">
+                            <li>
+                                <span class="bullet-star">&#10022;</span>
+                                <span>Managed social media, content strategy and consistent brand communication.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-star">&#10022;</span>
+                                <span>Led outreach and secured collaborations with institutions including IIT Delhi, Jesus and Mary College and BITS Goa.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-star">&#10022;</span>
+                                <span>Coordinated and delegated tasks across the marketing team.</span>
+                            </li>
+                        </ul>
+
+                        <div class="exp-card-footer">
+                            <span class="exp-footer-note">Brand Voice &bull; Institutional Partnerships &bull; Strategic Campaigns</span>
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 5: MY WORLD
+             Asymmetrical magazine collage grid showcasing multiple facets
+             ======================================================== -->
+        <section class="my-world-section" id="my-world">
+            <div class="container">
+                
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-number">03</span>
+                        <span class="tag-dash">&mdash;</span>
+                        <span class="tag-title">THE MULTIPOTENTIALITE</span>
+                    </div>
+                    <h2 class="section-title">NOT JUST ONE THING.</h2>
+                    <p class="section-subtitle">Because putting me into one category would be rather difficult.</p>
+                </div>
+
+                <!-- Asymmetrical Collage Grid -->
+                <div class="world-collage-grid">
+                    
+                    <!-- Card 1: Theatre Kid (Wide, Editorial Spotlight) -->
+                    <article class="collage-card card-theatre">
+                        <div class="collage-card-meta">
+                            <span class="collage-number">VOL. I</span>
+                            <span class="collage-category">DRAMATICS &amp; PERFORMANCE</span>
+                        </div>
+                        <h3 class="collage-title">THEATRE KID</h3>
+                        <p class="collage-quote">&ldquo;Some people find their voice. I found mine on stage.&rdquo;</p>
+                        
+                        <div class="collage-card-body">
+                            <ul class="collage-list">
+                                <li>Executive of <strong>Mrityunjaya</strong> at DPS Mathura Road.</li>
+                                <li>Led theatre productions, rehearsals and annual dramatics events.</li>
+                                <li>Organised Tamasha, Annual French Festival, Scholar Badge Ceremony and interschool debates.</li>
+                                <li>Represented school teams in theatre, arts, business pitch and literary competitions.</li>
+                            </ul>
+                        </div>
+                        <div class="card-corner-tag">&#9670; STAGE CRAFT</div>
+                    </article>
+
+                    <!-- Card 2: Community Matters (Terracotta Tinted Accent) -->
+                    <article class="collage-card card-community">
+                        <div class="collage-card-meta">
+                            <span class="collage-number">VOL. II</span>
+                            <span class="collage-category">SOCIAL ENGAGEMENT</span>
+                        </div>
+                        <h3 class="collage-title">COMMUNITY MATTERS</h3>
+                        <p class="collage-quote">&ldquo;Small actions, meaningful connections.&rdquo;</p>
+                        
+                        <div class="collage-card-body">
+                            <ul class="collage-list">
+                                <li>Organised and performed street plays in nearby slums.</li>
+                                <li>Coordinated donation drives, art-based engagement and volunteer initiatives.</li>
+                                <li>Scribed for specially-abled seniors during CBSE Board Examinations.</li>
+                            </ul>
+                        </div>
+                        <div class="card-corner-tag">&#10048; EMPATHY IN ACTION</div>
+                    </article>
+
+                    <!-- Card 3: Words Are My Thing (Literary & Introspective) -->
+                    <article class="collage-card card-words">
+                        <div class="collage-card-meta">
+                            <span class="collage-number">VOL. III</span>
+                            <span class="collage-category">LITERATURE &amp; WRITING</span>
+                        </div>
+                        <h3 class="collage-title">WORDS ARE MY THING</h3>
+                        <p class="collage-quote">&ldquo;Some thoughts are just too interesting to leave unwritten.&rdquo;</p>
+                        
+                        <div class="collage-card-body">
+                            <ul class="collage-list">
+                                <li>Recipient of the <strong>Co-Curricular Excellence Award in Literature</strong>.</li>
+                                <li>Recognised for essay writing, sonnet writing, poetry and literary quizzes.</li>
+                                <li>Passionate about storytelling, language and creative expression.</li>
+                            </ul>
+                        </div>
+                        <div class="card-corner-tag">&#9998; POETICS &amp; PROSE</div>
+                    </article>
+
+                    <!-- Card 4: The Creative Corner (Wide, Dynamic Mosaic) -->
+                    <article class="collage-card card-creative">
+                        <div class="collage-card-meta">
+                            <span class="collage-number">VOL. IV</span>
+                            <span class="collage-category">ARTS &amp; COMPETITION</span>
+                        </div>
+                        <h3 class="collage-title">THE CREATIVE CORNER</h3>
+                        <p class="collage-quote">&ldquo;Give me an idea and I'll probably find something to do with it.&rdquo;</p>
+                        
+                        <div class="collage-card-body">
+                            <ul class="collage-list">
+                                <li>Achieved top positions in Tamasha, Curtains Up and Abhivyanjana.</li>
+                                <li>Participated in Elegancia Fashion Show.</li>
+                                <li>Represented school at national-level literary and dramatic festivals, including Inter-DPS Lit-Saga and Theatron.</li>
+                            </ul>
+                        </div>
+                        <div class="card-corner-tag">&#10022; CREATIVE PURSUITS</div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 6: EDUCATION
+             Vertical editorial timeline with elegant markers & cards
+             ======================================================== -->
+        <section class="education-section" id="education">
+            <div class="container">
+                
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-number">04</span>
+                        <span class="tag-dash">&mdash;</span>
+                        <span class="tag-title">ACADEMIC FOUNDATIONS</span>
+                    </div>
+                    <h2 class="section-title">THE LEARNING CURVE.</h2>
+                    <p class="section-subtitle">Still learning, still exploring, still asking questions.</p>
+                </div>
+
+                <!-- Vertical Timeline -->
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+
+                    <!-- Milestone 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date-badge">2011 &ndash; 2025</div>
+                            <h3 class="timeline-institution">DELHI PUBLIC SCHOOL, MATHURA ROAD</h3>
+                            <p class="timeline-degree">Senior Secondary Graduate.</p>
+                            <div class="timeline-note">Foundational years shaping leadership, literary excellence, and theatrical discipline.</div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date-badge">2025 &ndash; 2028</div>
+                            <h3 class="timeline-institution">NMIMS, SARLA ANIL MODI SCHOOL OF ECONOMICS</h3>
+                            <p class="timeline-degree">Bachelor of Science &ndash; Economics.</p>
+                            <div class="timeline-note">Diving deep into micro &amp; macroeconomic systems, empirical inquiry, and human behavior.</div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-date-badge">2026 &ndash; 2029</div>
+                            <h3 class="timeline-institution">IIM BANGALORE</h3>
+                            <p class="timeline-degree">BBA &ndash; Digital Business &amp; Entrepreneurship.</p>
+                            <div class="timeline-note">Expanding strategic acumen, scalable digital business models, and entrepreneurial execution.</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 7: SKILLS
+             Playful typographic word collage (No boring progress bars!)
+             ======================================================== -->
+        <section class="skills-section" id="skills">
+            <div class="container">
+                
+                <!-- Section Header -->
+                <div class="section-header">
+                    <div class="section-tag">
+                        <span class="tag-number">05</span>
+                        <span class="tag-dash">&mdash;</span>
+                        <span class="tag-title">TOOLKIT &amp; CAPABILITIES</span>
+                    </div>
+                    <h2 class="section-title">A FEW THINGS I'M GOOD AT.</h2>
+                    <p class="section-subtitle">A creative constellation of analytical inquiry, communication, and leadership.</p>
+                </div>
+
+                <!-- Word Collage Container -->
+                <div class="skills-collage-wrapper">
+                    
+                    <div class="skill-tag tag-large tag-burgundy">
+                        <span class="tag-sparkle">&#10022;</span>
+                        <span class="tag-text">Strategic Communication</span>
+                    </div>
+
+                    <div class="skill-tag tag-medium tag-rose">
+                        <span class="tag-text">Team Leadership</span>
+                    </div>
+
+                    <div class="skill-tag tag-large tag-outline">
+                        <span class="tag-text">Research and Analysis</span>
+                    </div>
+
+                    <div class="skill-tag tag-small tag-terracotta">
+                        <span class="tag-sparkle">&#9670;</span>
+                        <span class="tag-text">Event Management</span>
+                    </div>
+
+                    <div class="skill-tag tag-xlarge tag-serif">
+                        <span class="tag-text">Critical Thinking</span>
+                    </div>
+
+                    <div class="skill-tag tag-medium tag-cream-bordered">
+                        <span class="tag-text">Marketing Strategy</span>
+                    </div>
+
+                    <div class="skill-tag tag-large tag-pill tag-burgundy-light">
+                        <span class="tag-sparkle">&#10048;</span>
+                        <span class="tag-text">Content Creation</span>
+                    </div>
+
+                    <div class="skill-tag tag-medium tag-outline">
+                        <span class="tag-text">Stakeholder Coordination</span>
+                    </div>
+
+                </div>
+
+                <!-- Creative Note Below Skills -->
+                <div class="skills-footnote">
+                    <p class="footnote-text">
+                        <em>&ldquo;Skills aren't checkboxes on a spreadsheet; they are tools for connecting with people and bringing ideas into reality.&rdquo;</em>
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================
+             SECTION 8: CONTACT
+             Deep burgundy, warm editorial farewell & direct contact
+             ======================================================== -->
+        <section class="contact-section" id="contact">
+            <div class="container contact-container">
+                
+                <!-- Editorial Contact Box -->
+                <div class="contact-card">
+                    <div class="contact-tag">
+                        <span class="star-icon">&#10022;</span>
+                        <span>06 &mdash; INITIATE CONVERSATION</span>
+                        <span class="star-icon">&#10022;</span>
+                    </div>
+
+                    <h2 class="contact-title">GOOD IDEAS START WITH A HELLO.</h2>
+                    
+                    <p class="contact-subtitle">
+                        Have a project, an interesting thought, or simply want to talk? I'm always up for a good conversation.
+                    </p>
+
+                    <!-- Direct Email Display -->
+                    <div class="email-display-wrapper">
+                        <span class="email-label">DIRECT INBOX</span>
+                        <a href="mailto:khemaniloveena@gmail.com" class="email-link">
+                            khemaniloveena@gmail.com
+                        </a>
+                    </div>
+
+                    <!-- Prominent Say Hello Action Button -->
+                    <div class="contact-actions">
+                        <a href="mailto:khemaniloveena@gmail.com" class="btn btn-connect-hero">
+                            <span>SAY HELLO</span>
+                            <span class="arrow">&nearr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Closing Whimsical Editorial Line -->
+                    <div class="contact-closing-line">
+                        <p>&ldquo;Thanks for stopping by. Now go do something interesting.&rdquo;</p>
+                    </div>
+
+                    <!-- Decorative Corner Accents -->
+                    <div class="card-accent accent-tl">&#10022;</div>
+                    <div class="card-accent accent-tr">&#10022;</div>
+                    <div class="card-accent accent-bl">&#10022;</div>
+                    <div class="card-accent accent-br">&#10022;</div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================
+         FOOTER
+         Minimal, sophisticated, and editorial
+         ======================================================== -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <p class="footer-brand">LOVEENA KHEMANI &copy; 2026</p>
+                <p class="footer-edition">A Creative Personal Anthology &bull; The Art of Being Loveena</p>
+            </div>
+
+            <div class="footer-center">
+                <span class="footer-flourish">&#10022; &bull; &#10022;</span>
+            </div>
+
+            <div class="footer-right">
+                <a href="#top" class="back-to-top" aria-label="Back to top of page">
+                    <span>BACK TO TOP</span>
+                    <span class="top-arrow">&uarr;</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
